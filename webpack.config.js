@@ -10,6 +10,7 @@ module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },

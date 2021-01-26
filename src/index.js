@@ -38,6 +38,9 @@ export default (source, context) => {
   Handlebars.registerHelper('majorNum', majorNumberHelper({ getTitleNumber, setTitleNumber }))
   Handlebars.registerHelper('minorNum', minorNumberHelper({ getTitleNumber, setTitleNumber }))
   Handlebars.registerHelper('subMinorNum', subMinorNumberHelper({ getTitleNumber, setTitleNumber }))
+  Handlebars.registerHelper('majorNumberEndSection', majorNumberEndSectionHelper({ getTitleNumber }))
+  Handlebars.registerHelper('minorNumberEndSection', minorNumberEndSectionHelper({ getTitleNumber }))
+  Handlebars.registerHelper('subMinorNumberEndSection', subMinorNumberEndSectionHelper({ getTitleNumber }))
   Handlebars.registerHelper('pageBreak', pageBreakHelper)
   Handlebars.registerHelper('compare', compareHelper)
   Handlebars.registerHelper('filter', filterHelper)
@@ -57,9 +60,6 @@ export default (source, context) => {
   Handlebars.registerHelper('fullName', fullNameHelper)
   Handlebars.registerHelper('gender', genderHelper)
   Handlebars.registerHelper('phoneNumber', phoneNumberHelper)
-  Handlebars.registerHelper('majorNumberEndSection', majorNumberEndSectionHelper)
-  Handlebars.registerHelper('minorNumberEndSection', minorNumberEndSectionHelper)
-  Handlebars.registerHelper('subMinorNumberEndSection', subMinorNumberEndSectionHelper)
 
   return Handlebars.compile(source)(context)
 }
