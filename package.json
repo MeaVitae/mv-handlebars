@@ -1,8 +1,11 @@
 {
   "name": "@meavitae/mv-handlebars",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/bundle.js",
+  "files": [
+    "dist/bundle.js"
+  ],
   "repository": {
     "type": "git",
     "url": "http://github.com/Meavitae/mv-handlebars.git"
