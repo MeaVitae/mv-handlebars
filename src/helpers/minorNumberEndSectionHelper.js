@@ -1,7 +1,7 @@
 'use strict'
 
-export default ({ getTitleNumber }) => () => {
-  const titleNumber = getTitleNumber()
+export default ({ getCurrentClause }) => () => {
+  const currentClause = getCurrentClause()
 
-  return `----- END OF CLAUSE ${titleNumber[0]}.${titleNumber[1]} -----`
+  return `----- END OF CLAUSE ${currentClause[0]}.${currentClause[1]} -----`
 }

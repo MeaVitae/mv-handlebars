@@ -1,3 +1,3 @@
 'use strict'
 
-export default ({ getTitleNumber }) => () => `----- END OF CLAUSE ${getTitleNumber()[0]} -----`
+export default ({ getCurrentClause }) => () => `----- END OF CLAUSE ${getCurrentClause()[0]} -----`

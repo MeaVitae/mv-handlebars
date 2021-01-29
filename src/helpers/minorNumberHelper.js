@@ -1,10 +1,10 @@
 'use strict'
 
-export default ({ getTitleNumber, setTitleNumber }) => () => {
-  const titleNumber = getTitleNumber()
-  const updatedMinor = titleNumber[1] + 1
+export default ({ getCurrentClause, setCurrentClause }) => () => {
+  const currentClause = getCurrentClause()
+  const updatedMinor = currentClause[1] + 1
 
-  setTitleNumber([titleNumber[0], updatedMinor, 0])
+  setCurrentClause([currentClause[0], updatedMinor, 0])
 
-  return [titleNumber[0], updatedMinor].join('.')
+  return [currentClause[0], updatedMinor].join('.')
 }

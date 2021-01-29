@@ -23,24 +23,24 @@ import phoneNumberHelper from './helpers/phoneNumberHelper'
 import subMinorNumberHelper from './helpers/subMinorNumberHelper'
 import subMinorNumberEndSectionHelper from './helpers/subMinorNumberEndSectionHelper'
 import titleCaseHelper from './helpers/titleCaseHelper'
-import titleNumberHelper from './helpers/titleNumberHelper'
+import getCurrentClauseHelper from './helpers/getCurrentClauseHelper'
 import underlineHelper from './helpers/underlineHelper'
 import upperCaseFirstHelper from './helpers/upperCaseFirstHelper'
 import upperCaseHelper from './helpers/upperCaseHelper'
 
 export default (source, context) => {
-  let titleNumber = [0, 0, 0]
+  let clauseArray = [0, 0, 0]
 
-  const getTitleNumber = () => titleNumber
-  const setTitleNumber = updatedTitleNumber => { titleNumber = updatedTitleNumber }
+  const getCurrentClause = () => clauseArray
+  const setCurrentClause = updatedTitleNumber => { clauseArray = updatedTitleNumber }
 
-  Handlebars.registerHelper('titleNum', titleNumberHelper(getTitleNumber))
-  Handlebars.registerHelper('majorNum', majorNumberHelper({ getTitleNumber, setTitleNumber }))
-  Handlebars.registerHelper('minorNum', minorNumberHelper({ getTitleNumber, setTitleNumber }))
-  Handlebars.registerHelper('subMinorNum', subMinorNumberHelper({ getTitleNumber, setTitleNumber }))
-  Handlebars.registerHelper('majorNumberEndSection', majorNumberEndSectionHelper({ getTitleNumber }))
-  Handlebars.registerHelper('minorNumberEndSection', minorNumberEndSectionHelper({ getTitleNumber }))
-  Handlebars.registerHelper('subMinorNumberEndSection', subMinorNumberEndSectionHelper({ getTitleNumber }))
+  Handlebars.registerHelper('titleNum', getCurrentClauseHelper(getCurrentClause))
+  Handlebars.registerHelper('majorNum', majorNumberHelper({ getCurrentClause, setCurrentClause }))
+  Handlebars.registerHelper('minorNum', minorNumberHelper({ getCurrentClause, setCurrentClause }))
+  Handlebars.registerHelper('subMinorNum', subMinorNumberHelper({ getCurrentClause, setCurrentClause }))
+  Handlebars.registerHelper('majorNumberEndSection', majorNumberEndSectionHelper({ getCurrentClause }))
+  Handlebars.registerHelper('minorNumberEndSection', minorNumberEndSectionHelper({ getCurrentClause }))
+  Handlebars.registerHelper('subMinorNumberEndSection', subMinorNumberEndSectionHelper({ getCurrentClause }))
   Handlebars.registerHelper('pageBreak', pageBreakHelper)
   Handlebars.registerHelper('compare', compareHelper)
   Handlebars.registerHelper('filter', filterHelper)

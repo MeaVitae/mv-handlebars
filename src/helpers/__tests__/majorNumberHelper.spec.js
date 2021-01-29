@@ -2,23 +2,23 @@
 
 import majorNumberHelper from '../majorNumberHelper'
 
-const mockTitleNumber = [0, 2, 5]
-const getTitleNumber = jest.fn().mockReturnValue(mockTitleNumber)
-const setTitleNumber = jest.fn()
+const mockCurrentClause = [0, 2, 5]
+const getCurrentClause = jest.fn().mockReturnValue(mockCurrentClause)
+const setCurrentClause = jest.fn()
 
 describe('majorNumberHelper', () => {
-  describe('the call to setTitleNumber', () => {
-    test('setTitleNumber is called with the the major number updated to + 1 (derived from the value obtained via the call to getTitleNumber) & the minor & sub minor set to 0', () => {
-      majorNumberHelper({ getTitleNumber, setTitleNumber })()
+  describe('the call to setCurrentClause', () => {
+    test('setCurrentClause is called with the the major number updated to + 1 (derived from the value obtained via the call to getCurrentClause) & the minor & sub minor set to 0', () => {
+      majorNumberHelper({ getCurrentClause, setCurrentClause })()
 
-      expect(setTitleNumber).toHaveBeenCalledWith([mockTitleNumber[0] + 1, 0, 0])
+      expect(setCurrentClause).toHaveBeenCalledWith([mockCurrentClause[0] + 1, 0, 0])
     })
   })
 
   describe('the return value', () => {
-    test('it returns a string representation of the major number (obtained via the call to getTitleNumber), incremented by 1', () => {
-      const returnValue = majorNumberHelper({ getTitleNumber, setTitleNumber })()
-      const majorNumberPlus1 = mockTitleNumber[0] + 1
+    test('it returns a string representation of the major number (obtained via the call to getCurrentClause), incremented by 1', () => {
+      const returnValue = majorNumberHelper({ getCurrentClause, setCurrentClause })()
+      const majorNumberPlus1 = mockCurrentClause[0] + 1
 
       expect(returnValue)
         .toEqual(majorNumberPlus1.toString())
