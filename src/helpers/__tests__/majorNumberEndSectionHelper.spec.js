@@ -11,7 +11,7 @@ describe('majorNumberEndSectionHelper', () => {
       const returnValue = majorNumberEndSectionHelper({ getTitleNumber })()
 
       expect(returnValue)
-        .toEqual('----- END OF SECTION 1 -----')
+        .toEqual('----- END OF CLAUSE 1 -----')
     })
   })
 })

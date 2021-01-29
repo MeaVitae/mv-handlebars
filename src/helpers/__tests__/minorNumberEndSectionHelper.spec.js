@@ -11,7 +11,7 @@ describe('minorNumberEndSectionHelper', () => {
       const returnValue = minorNumberEndSectionHelper({ getTitleNumber })()
 
       expect(returnValue)
-        .toEqual('----- END OF SECTION 1.2 -----')
+        .toEqual('----- END OF CLAUSE 1.2 -----')
     })
   })
 })
