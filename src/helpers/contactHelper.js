@@ -18,7 +18,7 @@ export default (contact, options) => {
     contactAddress: addressHelper({ addresses: contact.addresses }, options),
     contactEmailAddress: emailAddressHelper({ emailAddresses: contact.emailAddresses }, options),
     contactPhoneNumber: phoneNumberHelper({ phoneNumbers: contact.phoneNumbers }, options),
-    ...contact.dateOfBirth && { contactDateOfBirthString: formatDateHelper({ date: contact.dateOfBirth }, options) },
+    ...contact.dateOfBirth && { contactDateOfBirthString: formatDateHelper(contact.dateOfBirth, options) },
     ...genderHelper({ genderType: contact.genderType }, options)
   })
 }
