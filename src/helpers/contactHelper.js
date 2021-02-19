@@ -1,7 +1,7 @@
 'use strict'
 
 import addressHelper from './addressHelper'
-import dateOfBirthStringHelper from './dateOfBirthStringHelper'
+import formatDateHelper from './formatDateHelper'
 import emailAddressHelper from './emailAddressHelper'
 import fullNameHelper from './fullNameHelper'
 import genderHelper from './genderHelper'
@@ -18,7 +18,7 @@ export default (contact, options) => {
     contactAddress: addressHelper({ addresses: contact.addresses }, options),
     contactEmailAddress: emailAddressHelper({ emailAddresses: contact.emailAddresses }, options),
     contactPhoneNumber: phoneNumberHelper({ phoneNumbers: contact.phoneNumbers }, options),
-    ...contact.dateOfBirth && { contactDateOfBirthString: dateOfBirthStringHelper({ dateOfBirth: contact.dateOfBirth }, options) },
+    ...contact.dateOfBirth && { contactDateOfBirthString: formatDateHelper({ date: contact.dateOfBirth }, options) },
     ...genderHelper({ genderType: contact.genderType }, options)
   })
 }

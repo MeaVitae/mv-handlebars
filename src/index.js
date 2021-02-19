@@ -4,7 +4,7 @@ import Handlebars from 'handlebars'
 import addressHelper from './helpers/addressHelper'
 import compareHelper from './helpers/compareHelper'
 import contactHelper from './helpers/contactHelper'
-import dateOfBirthStringHelper from './helpers/dateOfBirthStringHelper'
+import dateFormatterHelper from './helpers/dateFormatterHelper'
 import emailAddressHelper from './helpers/emailAddressHelper'
 import filterHelper from './helpers/filterHelper'
 import formatMoneyHelper from './helpers/formatMoneyHelper'
@@ -55,7 +55,7 @@ export default (source, context) => {
   Handlebars.registerHelper('groupNameRelationship', groupNameRelationshipHelper)
   Handlebars.registerHelper('contact', contactHelper)
   Handlebars.registerHelper('address', addressHelper)
-  Handlebars.registerHelper('dateOfBirthString', dateOfBirthStringHelper)
+  Handlebars.registerHelper('dateFormatter', dateFormatterHelper)
   Handlebars.registerHelper('emailAddress', emailAddressHelper)
   Handlebars.registerHelper('fullName', fullNameHelper)
   Handlebars.registerHelper('gender', genderHelper)
