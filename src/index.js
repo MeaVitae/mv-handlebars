@@ -76,9 +76,7 @@ export default (source, context) => {
     const header = document.createElement('h2')
     header.innerHTML = 'Table of Contents'
 
-    const br = document.createElement('br')
     doc.getElementById('toc').appendChild(header)
-    doc.getElementById('toc').appendChild(br)
 
     const ol = document.createElement('ol')
 

@@ -51,6 +51,7 @@ test('something', () => {
   }
 
   const revisedResult = doc.getElementById('body').innerHTML
+  console.log(revisedResult)
 
-  console.log(Handlebars.compile(revisedResult)({}))
+  // console.log(Handlebars.compile(revisedResult)({}))
 })
