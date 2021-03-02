@@ -10,6 +10,7 @@ import formatDateHelper from './helpers/formatDateHelper'
 import formatMoneyHelper from './helpers/formatMoneyHelper'
 import fullNameHelper from './helpers/fullNameHelper'
 import genderHelper from './helpers/genderHelper'
+import tableOfContentsHelper from './helpers/tableOfContentsHelper'
 import groupNameRelationshipHelper from './helpers/groupNameRelationshipHelper'
 import lowerCaseHelper from './helpers/lowerCaseHelper'
 import majorNumberEndSectionHelper from './helpers/majorNumberEndSectionHelper'
@@ -30,12 +31,16 @@ import upperCaseHelper from './helpers/upperCaseHelper'
 
 export default (source, context) => {
   let clauseArray = [0, 0, 0]
+  const tableOfContentsArray = []
 
   const getCurrentClause = () => clauseArray
   const setCurrentClause = updatedTitleNumber => { clauseArray = updatedTitleNumber }
 
+  const addEntryToTOC = entry => tableOfContentsArray.push(entry)
+
+  Handlebars.registerHelper('tableOfContents', tableOfContentsHelper)
   Handlebars.registerHelper('titleNum', getCurrentClauseHelper(getCurrentClause))
-  Handlebars.registerHelper('majorNum', majorNumberHelper({ getCurrentClause, setCurrentClause }))
+  Handlebars.registerHelper('majorNum', majorNumberHelper({ getCurrentClause, setCurrentClause, addEntryToTOC }))
   Handlebars.registerHelper('minorNum', minorNumberHelper({ getCurrentClause, setCurrentClause }))
   Handlebars.registerHelper('subMinorNum', subMinorNumberHelper({ getCurrentClause, setCurrentClause }))
   Handlebars.registerHelper('majorNumberEndSection', majorNumberEndSectionHelper({ getCurrentClause }))
@@ -61,5 +66,32 @@ export default (source, context) => {
   Handlebars.registerHelper('gender', genderHelper)
   Handlebars.registerHelper('phoneNumber', phoneNumberHelper)
 
-  return Handlebars.compile(source)(context)
+  const result = Handlebars.compile(source)(context)
+
+  const doc = document.implementation.createHTMLDocument()
+  doc.body.setAttribute('id', 'body')
+  doc.getElementById('body').innerHTML = result
+
+  if (doc.getElementById('toc')) {
+    const header = document.createElement('h2')
+    header.innerHTML = 'Table of Contents'
+
+    const br = document.createElement('br')
+    doc.getElementById('toc').appendChild(header)
+    doc.getElementById('toc').appendChild(br)
+
+    const ol = document.createElement('ol')
+
+    tableOfContentsArray.forEach(({ title }) => {
+      const li = document.createElement('li')
+      li.innerHTML = `${title}`
+      ol.appendChild(li)
+    })
+
+    doc.getElementById('toc').appendChild(ol)
+  }
+
+  const revisedResult = doc.getElementById('body').innerHTML
+
+  return Handlebars.compile(revisedResult)({})
 }
