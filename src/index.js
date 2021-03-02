@@ -82,14 +82,12 @@ export default (source, context) => {
 
     tableOfContentsArray.forEach(({ title }) => {
       const li = document.createElement('li')
-      li.innerHTML = `${title}`
+      li.innerHTML = title
       ol.appendChild(li)
     })
 
     doc.getElementById('toc').appendChild(ol)
   }
 
-  const revisedResult = doc.getElementById('body').innerHTML
-
-  return Handlebars.compile(revisedResult)({})
+  return doc.getElementById('body').innerHTML
 }
