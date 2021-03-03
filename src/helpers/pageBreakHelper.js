@@ -1,3 +1,3 @@
 'use strict'
 
-export default () => '<div style="page-break-after: always"></div>'
+export default () => '<div style="break-before: always">&nbsp</div>'
