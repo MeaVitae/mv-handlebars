@@ -8,7 +8,7 @@ describe('pageBreakHelper', () => {
       const returnValue = pageBreakHelper()
 
       expect(returnValue)
-        .toEqual('<div style="page-break-after: always"></div>')
+        .toEqual('<div class="page-break">&nbsp</div>')
     })
   })
 })
