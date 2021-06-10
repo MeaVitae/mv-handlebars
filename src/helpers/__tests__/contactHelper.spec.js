@@ -8,7 +8,7 @@ const mockOptionsObject = {
 }
 
 const contactObject = {
-  someOtherProperty: faker.random.uuid(),
+  someOtherProperty: faker.datatype.uuid(),
   firstName: faker.name.firstName(),
   middleNames: faker.name.firstName(),
   lastName: faker.name.lastName(),
@@ -17,7 +17,7 @@ const contactObject = {
 
   addresses: [
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       placeResult: {
         formatted_address: faker.address.streetAddress()
@@ -25,7 +25,7 @@ const contactObject = {
       returnData: {}
     },
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: true,
       placeResult: {
         formatted_address: faker.address.streetAddress()
@@ -33,7 +33,7 @@ const contactObject = {
       returnData: {}
     },
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       placeResult: {
         formatted_address: faker.address.streetAddress()
@@ -44,19 +44,19 @@ const contactObject = {
 
   emailAddresses: [
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       type: faker.random.arrayElement(['work', 'home', 'other']),
       value: faker.internet.email()
     },
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: true,
       type: faker.random.arrayElement(['work', 'home', 'other']),
       value: faker.internet.email()
     },
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       type: faker.random.arrayElement(['work', 'home', 'other']),
       value: faker.internet.email()
@@ -65,13 +65,13 @@ const contactObject = {
 
   phoneNumbers: [
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       type: faker.random.arrayElement(['mobile', 'work', 'home', 'other']),
       value: faker.phone.phoneNumber()
     },
     {
-      id: faker.random.uuid(),
+      id: faker.datatype.uuid(),
       isPref: false,
       type: faker.random.arrayElement(['mobile', 'work', 'home', 'other']),
       value: faker.phone.phoneNumber()

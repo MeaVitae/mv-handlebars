@@ -67,7 +67,7 @@ describe('compareHelper', () => {
 
       describe('the result of the compare function is true', () => {
         test('options.fn is called with the context object as the param value', () => {
-          const mockThis = { id: faker.random.uuid() }
+          const mockThis = { id: faker.datatype.uuid() }
 
           compareHelper.call(mockThis, 'abc', '===', 'abc', mockOptionsObject)
 
@@ -77,7 +77,7 @@ describe('compareHelper', () => {
 
       describe('the result of the compare function is false', () => {
         test('options.inverse is called with the context object as the param value', () => {
-          const mockThis = { id: faker.random.uuid() }
+          const mockThis = { id: faker.datatype.uuid() }
 
           compareHelper.call(mockThis, 'abc', '===', 'def', mockOptionsObject)
 
