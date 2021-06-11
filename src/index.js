@@ -4,6 +4,7 @@ import Handlebars from 'handlebars'
 import addressHelper from './helpers/addressHelper'
 import compareHelper from './helpers/compareHelper'
 import contactHelper from './helpers/contactHelper'
+import contactsToNameAndAddressStringHelper from './helpers/contactsToNameAndAddressStringHelper'
 import emailAddressHelper from './helpers/emailAddressHelper'
 import filterHelper from './helpers/filterHelper'
 import formatDateHelper from './helpers/formatDateHelper'
@@ -65,6 +66,7 @@ export default (source, context) => {
   Handlebars.registerHelper('fullName', fullNameHelper)
   Handlebars.registerHelper('gender', genderHelper)
   Handlebars.registerHelper('phoneNumber', phoneNumberHelper)
+  Handlebars.registerHelper('contactsToNameAndAddressString', contactsToNameAndAddressStringHelper)
 
   const result = Handlebars.compile(source)(context)
 
