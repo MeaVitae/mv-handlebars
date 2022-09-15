@@ -1,6 +1,6 @@
 {
   "name": "@meavitae/mv-handlebars",
-  "version": "1.2.9",
+  "version": "1.2.12",
   "description": "",
   "main": "dist/bundle.js",
   "files": [
@@ -43,5 +43,8 @@
   },
   "standard": {
     "parser": "@babel/eslint-parser"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }

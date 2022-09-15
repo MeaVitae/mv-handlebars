@@ -33,10 +33,6 @@ const genderLookup = {
 }
 
 export default ({ genderType }, options) => {
-  if (!genderType) {
-    throw new Error('Template Error: Gender Helper - gender type is invalid')
-  }
-
   return genderLookup[genderType] || {
     personalPronounSubject: null,
     personalPronounObject: null,

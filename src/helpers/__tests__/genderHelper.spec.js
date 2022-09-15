@@ -7,30 +7,28 @@ const mockOptionsObject = {}
 
 describe('genderHelper', () => {
   describe('genderType property not provided', () => {
-    test('the correct error is thrown', () => {
-      try {
-        genderHelper({}, mockOptionsObject)
+    test("each of the returned object's property values are null", () => {
+      const returnValue = genderHelper({}, mockOptionsObject)
 
-        throw new Error('test should have thrown error')
-      } catch (error) {
-        expect(error.message)
-          .toEqual('Template Error: Gender Helper - gender type is invalid')
-      }
+      expect(returnValue).toEqual({
+        personalPronounSubject: null,
+        personalPronounObject: null,
+        possessivePronoun: null
+      })
     })
   })
 
   describe('genderType property not provided', () => {
-    test('the correct error is thrown', () => {
-      try {
-        const genderType = ''
+    test("each of the returned object's property values are null", () => {
+      const genderType = ''
 
-        genderHelper({ genderType }, mockOptionsObject)
+      const returnValue = genderHelper({ genderType }, mockOptionsObject)
 
-        throw new Error('test should have thrown error')
-      } catch (error) {
-        expect(error.message)
-          .toEqual('Template Error: Gender Helper - gender type is invalid')
-      }
+      expect(returnValue).toEqual({
+        personalPronounSubject: null,
+        personalPronounObject: null,
+        possessivePronoun: null
+      })
     })
   })
 

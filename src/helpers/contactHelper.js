@@ -8,9 +8,8 @@ import genderHelper from './genderHelper'
 import phoneNumberHelper from './phoneNumberHelper'
 
 export default (contact, options) => {
-  if (!options || !contact) {
-    throw new Error('Template Error: Contact Helper - Contact object has not been provided')
-  }
+  if (!contact) throw new Error('Template Error: Contact Helper - Contact object has not been provided')
+  if (!options) throw new Error('Template Error: Contact Helper - Options has not been provided')
 
   return options.fn({
     ...contact,
