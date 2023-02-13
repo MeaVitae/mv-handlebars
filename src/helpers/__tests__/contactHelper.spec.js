@@ -87,6 +87,7 @@ describe('contactHelper', () => {
       .toHaveBeenCalledWith({
         ...contactObject,
         contactFullName: `${contactObject.firstName} ${contactObject.middleNames} ${contactObject.lastName}`,
+        contactIsCharity: false,
         contactAddress: contactObject.addresses[1].placeResult.formatted_address,
         contactEmailAddress: contactObject.emailAddresses[1].value,
         contactPhoneNumber: contactObject.phoneNumbers[0].value,
